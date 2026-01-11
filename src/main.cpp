@@ -1,5 +1,7 @@
 #include <Windows.h>
 #include "Console.h"
+#include "API.h"
+#include <iostream>
 
 DWORD WINAPI MainThread(HINSTANCE hinstDLL)
 {
@@ -7,6 +9,7 @@ DWORD WINAPI MainThread(HINSTANCE hinstDLL)
 
     while (!(GetAsyncKeyState(VK_END) & 1))
     {
+        std::cout << API::GetPlayerType() << std::endl;
         Sleep(50);
     }
 
