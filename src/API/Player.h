@@ -9,7 +9,7 @@ namespace API::Player
     Vec3 GetPosition();
     void SetPosition(Vec3 position);
     int GetHealth();
-    Types::Object GetType();
+    Types::ObjectType GetType();
     std::string GetTypeString();
     void MoveTo(Vec3 position);
     float GetRotation();

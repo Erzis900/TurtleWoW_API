@@ -33,7 +33,7 @@ namespace API::Player
         return API::GetHealth(GetGUID());
     }
 
-    Types::Object GetType()
+    Types::ObjectType GetType()
     {
         return API::GetType(GetGUID());
     }

@@ -4,5 +4,6 @@
 
 namespace Utils
 {
-    std::string ObjectTypeToString(Types::Object type);
+    std::string ObjectTypeToString(Types::ObjectType type);
+    std::string UnitTypeToString(Types::UnitType type);
 }

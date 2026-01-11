@@ -10,10 +10,11 @@ namespace Offsets
         constexpr uintptr_t GET_CAMERA = 0x004818F0;
         constexpr uintptr_t GET_SCREEN_COORDINATES = 0x00483EE0;
         constexpr uintptr_t MOVE_TO = 0x00611130;
-        constexpr uintptr_t GET_CREATURE_TYPE = 0x00605570;
+        constexpr uintptr_t GET_UNIT_TYPE = 0x00605570;
         constexpr uintptr_t GET_UNIT_REACTION = 0x006061E0;
         constexpr uintptr_t GET_UNIT_MODEL_NAME = 0x00600320;
         constexpr uintptr_t GET_MODEL_NAME = 0x005F8090;
+        // constexpr uintptr_t SET_TARGET = 0x00493540;
     }
 
     namespace Object

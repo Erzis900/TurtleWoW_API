@@ -15,7 +15,7 @@ struct Vec3
 
 namespace Types
 {
-    enum Object
+    enum ObjectType
     {
         None,
         Item,
@@ -25,5 +25,23 @@ namespace Types
         GameObject,
         DynamicObject,
         Corpse
+    };
+
+    enum UnitType
+    {
+        Unknown,
+        Beast,
+        Dragon,
+        Demon,
+        Elemental,
+        Giant,
+        Undead,
+        Humanoid,
+        Critter,
+        Mechanical,
+        NotSpecified,
+        Totem,
+        NonCombatPet,
+        GasCloud
     };
 }

@@ -31,9 +31,9 @@ namespace API
         return Mem::Read<int>(GetDescriptor(guid) + Offsets::Object::MAX_HEALTH);
     }
 
-    Types::Object GetType(uint64_t guid)
+    Types::ObjectType GetType(uint64_t guid)
     {
-        return Mem::Read<Types::Object>(GetObjectPtr(guid) + Offsets::Object::TYPE);
+        return Mem::Read<Types::ObjectType>(GetObjectPtr(guid) + Offsets::Object::TYPE);
     }
 
     std::string GetTypeString(uint64_t guid)
@@ -70,5 +70,15 @@ namespace API
     int GetID(uint64_t guid)
     {
         return Mem::Read<int>(GetDescriptor(guid) + Offsets::Object::ID);
+    }
+
+    Types::UnitType GetUnitType(uint64_t guid)
+    {
+        return static_cast<Types::UnitType>(Functions::GetUnitType(GetObjectPtr(guid)));
+    }
+
+    std::string GetUnitTypeString(uint64_t guid)
+    {
+        return Utils::UnitTypeToString(GetUnitType(guid));
     }
 }
