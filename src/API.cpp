@@ -82,4 +82,15 @@ namespace API
     {
         Functions::EnumVisibleObjects(function, 0);
     }
+
+    uintptr_t GetCamera()
+    {
+        return Functions::GetCamera();
+    }
+
+    void MoveTo(Vec3 position)
+    {
+        uint64_t guid = 0;
+        Functions::MoveTo(GetPlayerPtr(), 4, &guid, &position, 2);
+    }
 }

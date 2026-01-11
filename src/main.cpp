@@ -1,16 +1,17 @@
 #include <Windows.h>
 #include "Console.h"
 #include "API.h"
-#include "Types.h"
 #include <iostream>
 
 bool __thiscall Callback(int filter, uint64_t guid)
 {
     // std::cout << API::GetTypeString(guid) << std::endl;
-    if (API::GetType(guid) == Types::Object::Unit)
-    {
-        std::cout << API::GetName(guid) << std::endl;
-    }
+    // if (API::GetType(guid) != Types::Object::Player)
+    // {
+    //     std::cout << API::GetName(guid) << std::endl;
+    // }
+
+    std::cout << API::GetPlayerPosition().ToString() << std::endl;
 
     return true;
 }

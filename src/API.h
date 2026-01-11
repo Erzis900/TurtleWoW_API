@@ -2,6 +2,7 @@
 #include <cstdint>
 #include "Types.h"
 #include "Functions.h"
+#include "Types.h"
 #include <string>
 
 namespace API
@@ -27,4 +28,7 @@ namespace API
 
     std::string GetName(uint64_t guid);
     void ForEachObject(ObjectCallback function);
+
+    uintptr_t GetCamera();
+    void MoveTo(Vec3 position);
 }
