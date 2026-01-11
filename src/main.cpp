@@ -9,7 +9,8 @@ DWORD WINAPI MainThread(HINSTANCE hinstDLL)
 
     while (!(GetAsyncKeyState(VK_END) & 1))
     {
-        std::cout << API::GetPlayerTypeString() << std::endl;
+        // std::cout << API::GetName(API::GetPlayerGUID()) << std::endl;
+        API::Enum();
         Sleep(50);
     }
 

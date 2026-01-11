@@ -5,7 +5,6 @@ add_library(${PROJECT_NAME} SHARED
     src/main.cpp
     src/Console.cpp
     src/API.cpp
-    src/Functions.cpp
     src/Utils.cpp
 )
 

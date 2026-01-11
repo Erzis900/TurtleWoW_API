@@ -3,6 +3,13 @@
 #include "Mem.h"
 #include "Offsets.h"
 #include "Utils.h"
+#include <iostream>
+
+bool __thiscall AppendObject(int filter, uint64_t guid)
+{
+    std::cout << API::GetTypeString(guid) << std::endl;
+    return true;
+}
 
 namespace API
 {
@@ -69,5 +76,17 @@ namespace API
     std::string GetPlayerTypeString()
     {
         return GetTypeString(GetPlayerGUID());
+    }
+
+    std::string GetName(uint64_t guid)
+    {
+        uintptr_t ptr1 = Mem::Read<uintptr_t>(GetObjectPtr(guid) + Offsets::Unit::NAME);
+        uintptr_t ptr2 = Mem::Read<uintptr_t>(ptr1);
+        return Mem::ReadString(ptr2);
+    }
+
+    void Enum()
+    {
+        Functions::EnumVisibleObjects(AppendObject, 0);
     }
 }

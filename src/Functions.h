@@ -1,10 +1,11 @@
 #pragma once
 #include <cstdint>
+#include "Offsets.h"
 
 using fpGetPlayerGUID = uint64_t(__cdecl *)();
 using fpGetObjectPtr = uintptr_t(__stdcall *)(uint64_t guid);
-// using VisibleObjectsEnumProc = bool(__thiscall *)(int filter, uint64_t guid);
-// using ClntObjMgrEnumVisibleObjectsPtr = bool(__fastcall *)(VisibleObjectsEnumProc proc, unsigned int filter);
+using EnumVisibleObjectsCallback = bool(__thiscall *)(int filter, uint64_t guid);
+using fpEnumVisibleObjects = bool(__fastcall *)(EnumVisibleObjectsCallback proc, unsigned int filter);
 // using GetActiveCamera = uintptr_t(__cdecl *)();
 // using GetScreenCoordinates = bool(__thiscall *)(uintptr_t frame, Vec3 *worldPos, ImVec2 *screenOut);
 // using ClickToMove = bool(__thiscall *)(uintptr_t playerPtr, int clickType, uint64_t *interactGuidPtr, Vec3 *clickPos, float precision);
@@ -15,6 +16,7 @@ using fpGetObjectPtr = uintptr_t(__stdcall *)(uint64_t guid);
 
 namespace Functions
 {
-    extern fpGetPlayerGUID GetPlayerGUID;
-    extern fpGetObjectPtr GetObjectPtr;
+    inline fpGetPlayerGUID GetPlayerGUID = reinterpret_cast<fpGetPlayerGUID>(Offsets::Functions::GET_PLAYER_GUID);
+    inline fpGetObjectPtr GetObjectPtr = reinterpret_cast<fpGetObjectPtr>(Offsets::Functions::GET_OBJECT_PTR);
+    inline fpEnumVisibleObjects EnumVisibleObjects = reinterpret_cast<fpEnumVisibleObjects>(Offsets::Functions::ENUM_VISIBLE_OBJECTS);
 }

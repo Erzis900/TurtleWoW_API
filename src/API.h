@@ -23,4 +23,7 @@ namespace API
 
     std::string GetTypeString(uint64_t guid);
     std::string GetPlayerTypeString();
+
+    std::string GetName(uint64_t guid);
+    void Enum();
 }
