@@ -121,6 +121,16 @@ namespace API
 
     void SetPlayerSpeed(float speed)
     {
-        Mem::Write<float>(Functions::GetObjectPtr(Functions::GetPlayerGUID()) + Offsets::Unit::SPEED, speed);
+        Mem::Write<float>(GetPlayerPtr() + Offsets::Unit::SPEED, speed);
+    }
+
+    float GetSpeedModifier(uint64_t guid)
+    {
+        return Mem::Read<float>(GetPlayerPtr() + Offsets::Unit::SPEED_MOD);
+    }
+
+    void SetPlayerSpeedModifier(float speedModifier)
+    {
+        Mem::Write<float>(GetPlayerPtr() + Offsets::Unit::SPEED_MOD, speedModifier);
     }
 }

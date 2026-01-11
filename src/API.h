@@ -39,4 +39,7 @@ namespace API
     float GetSpeed(uint64_t guid);
     float GetPlayerSpeed();
     void SetPlayerSpeed(float speed);
+
+    float GetSpeedModifier(uint64_t guid);
+    void SetPlayerSpeedModifier(float speedModifier);
 }
