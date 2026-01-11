@@ -108,4 +108,14 @@ namespace API
     {
         return GetRotation(GetPlayerGUID());
     }
+
+    float GetSpeed(uint64_t guid)
+    {
+        return Mem::Read<float>(Functions::GetObjectPtr(guid) + Offsets::Unit::SPEED);
+    }
+
+    float GetPlayerSpeed()
+    {
+        return GetSpeed(GetPlayerGUID());
+    }
 }

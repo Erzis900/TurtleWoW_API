@@ -12,7 +12,7 @@ bool __thiscall Callback(int filter, uint64_t guid)
     // }
 
     // std::cout << API::GetCameraPosition().ToString() << std::endl;
-    std::cout << API::GetPlayerRotation() << std::endl;
+    std::cout << API::GetPlayerSpeed() << std::endl;
 
     return true;
 }

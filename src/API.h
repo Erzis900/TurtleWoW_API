@@ -35,4 +35,7 @@ namespace API
     void MoveTo(Vec3 position);
     float GetRotation(uint64_t guid);
     float GetPlayerRotation();
+
+    float GetSpeed(uint64_t guid);
+    float GetPlayerSpeed();
 }

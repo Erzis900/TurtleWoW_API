@@ -28,6 +28,7 @@ namespace Offsets
         constexpr uintptr_t FACING = 0x09C4;
         constexpr uintptr_t HEALTH = 0x58;
         constexpr uintptr_t NAME = 0xB30;
+        constexpr uintptr_t SPEED = 0xA2C;
     }
 
     namespace Camera
