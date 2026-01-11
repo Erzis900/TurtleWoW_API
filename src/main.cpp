@@ -8,8 +8,9 @@ bool __thiscall Callback(int filter, uint64_t guid)
     if (API::GetType(guid) != Types::Unit)
         return true;
 
-    // std::cout << API::GetMaxHealth(guid) << " " << API::GetName(guid) << std::endl;
-    std::cout << API::GetUnitTypeString(guid) << std::endl;
+    std::cout << API::Unit::GetReactionTypeString(guid, API::Player::GetGUID()) << std::endl;
+    // std::cout << API::Unit::GetTypeString(guid) << " " << API::GetName(guid) << " " << guid << std::endl;
+    // std::cout << API::Unit::GetTypeString(guid) << " " << API::GetName(guid) << std::endl;
     return true;
 }
 

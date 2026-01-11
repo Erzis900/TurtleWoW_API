@@ -9,6 +9,9 @@ const std::array<std::string, 14> UnitTypeStrings = {
     "Undead", "Humanoid", "Critter", "Mechanical", "NotSpecified",
     "Totem", "NonCombatPet", "GasCloud"};
 
+const std::array<std::string, 8> ReactionTypeStrings = {
+    "Hated", "Hostile", "Unfriendly", "Neutral", "Friendly", "Honored", "Revered", "Exalted"};
+
 namespace Utils
 {
     std::string ObjectTypeToString(Types::ObjectType type)
@@ -19,5 +22,10 @@ namespace Utils
     std::string UnitTypeToString(Types::UnitType type)
     {
         return UnitTypeStrings[type];
+    }
+
+    std::string ReactionTypeToString(Types::ReactionType type)
+    {
+        return ReactionTypeStrings[type];
     }
 }

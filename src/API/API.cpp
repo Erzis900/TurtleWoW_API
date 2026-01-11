@@ -71,14 +71,4 @@ namespace API
     {
         return Mem::Read<int>(GetDescriptor(guid) + Offsets::Object::ID);
     }
-
-    Types::UnitType GetUnitType(uint64_t guid)
-    {
-        return static_cast<Types::UnitType>(Functions::GetUnitType(GetObjectPtr(guid)));
-    }
-
-    std::string GetUnitTypeString(uint64_t guid)
-    {
-        return Utils::UnitTypeToString(GetUnitType(guid));
-    }
 }

@@ -10,7 +10,7 @@ using fpGetCamera = uintptr_t(__cdecl *)();
 using fpMoveTo = bool(__thiscall *)(uintptr_t playerPtr, int clickType, uint64_t *interactGuidPtr, Vec3 *clickPos, float precision);
 // using GetScreenCoordinates = bool(__thiscall *)(uintptr_t frame, Vec3 *worldPos, ImVec2 *screenOut);
 using fpGetUnitType = int(__thiscall *)(uintptr_t unitPtr);
-// using GetUnitReaction = int(__thiscall *)(uintptr_t unitPtr1, uintptr_t unitPtr2);
+using fpGetUnitReaction = int(__thiscall *)(uintptr_t unitPtr1, uintptr_t unitPtr2);
 // using GetUnitModelName = char *(__fastcall *)(uintptr_t ptr);
 // using GetModelName = const char *(__fastcall *)(uintptr_t objectPtr);
 
@@ -22,4 +22,5 @@ namespace Functions
     inline fpGetCamera GetCamera = reinterpret_cast<fpGetCamera>(Offsets::Functions::GET_CAMERA);
     inline fpMoveTo MoveTo = reinterpret_cast<fpMoveTo>(Offsets::Functions::MOVE_TO);
     inline fpGetUnitType GetUnitType = reinterpret_cast<fpGetUnitType>(Offsets::Functions::GET_UNIT_TYPE);
+    inline fpGetUnitReaction GetUnitReaction = reinterpret_cast<fpGetUnitReaction>(Offsets::Functions::GET_UNIT_REACTION);
 }

@@ -11,6 +11,7 @@ add_library(${PROJECT_NAME} SHARED
     src/API/API.cpp
     src/API/Player.cpp
     src/API/Camera.cpp
+    src/API/Unit.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE src)

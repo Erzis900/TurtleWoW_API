@@ -44,4 +44,16 @@ namespace Types
         NonCombatPet,
         GasCloud
     };
+
+    enum ReactionType
+    {
+        Hated,
+        Hostile,
+        Unfriendly,
+        Neutral,
+        Friendly,
+        Honored,
+        Revered,
+        Exalted
+    };
 }

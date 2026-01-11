@@ -6,6 +6,7 @@
 
 #include "Player.h"
 #include "Camera.h"
+#include "Unit.h"
 
 namespace API
 {
@@ -22,8 +23,6 @@ namespace API
     float GetSpeed(uint64_t guid);
     float GetSpeedModifier(uint64_t guid);
     int GetID(uint64_t guid);
-    Types::UnitType GetUnitType(uint64_t guid);
-    std::string GetUnitTypeString(uint64_t guid);
 
     // C++ magic, don't ask me about it
     template <std::size_t index, typename Ret, typename... Args>
