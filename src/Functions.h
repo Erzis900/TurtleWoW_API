@@ -4,8 +4,8 @@
 
 using fpGetPlayerGUID = uint64_t(__cdecl *)();
 using fpGetObjectPtr = uintptr_t(__stdcall *)(uint64_t guid);
-using EnumVisibleObjectsCallback = bool(__thiscall *)(int filter, uint64_t guid);
-using fpEnumVisibleObjects = bool(__fastcall *)(EnumVisibleObjectsCallback proc, unsigned int filter);
+using ObjectCallback = bool(__thiscall *)(int filter, uint64_t guid);
+using fpEnumVisibleObjects = bool(__fastcall *)(ObjectCallback proc, unsigned int filter);
 // using GetActiveCamera = uintptr_t(__cdecl *)();
 // using GetScreenCoordinates = bool(__thiscall *)(uintptr_t frame, Vec3 *worldPos, ImVec2 *screenOut);
 // using ClickToMove = bool(__thiscall *)(uintptr_t playerPtr, int clickType, uint64_t *interactGuidPtr, Vec3 *clickPos, float precision);

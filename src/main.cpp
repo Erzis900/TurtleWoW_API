@@ -3,14 +3,19 @@
 #include "API.h"
 #include <iostream>
 
+bool __thiscall PrintType(int filter, uint64_t guid)
+{
+    std::cout << API::GetTypeString(guid) << std::endl;
+    return true;
+}
+
 DWORD WINAPI MainThread(HINSTANCE hinstDLL)
 {
     Console::Init();
 
     while (!(GetAsyncKeyState(VK_END) & 1))
     {
-        // std::cout << API::GetName(API::GetPlayerGUID()) << std::endl;
-        API::Enum();
+        API::ForEachObject(PrintType);
         Sleep(50);
     }
 

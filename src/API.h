@@ -1,6 +1,7 @@
 #pragma once
 #include <cstdint>
 #include "Types.h"
+#include "Functions.h"
 #include <string>
 
 namespace API
@@ -25,5 +26,5 @@ namespace API
     std::string GetPlayerTypeString();
 
     std::string GetName(uint64_t guid);
-    void Enum();
+    void ForEachObject(ObjectCallback function);
 }

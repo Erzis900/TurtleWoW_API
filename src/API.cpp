@@ -1,15 +1,8 @@
 #include "API.h"
-#include "Functions.h"
 #include "Mem.h"
 #include "Offsets.h"
 #include "Utils.h"
 #include <iostream>
-
-bool __thiscall AppendObject(int filter, uint64_t guid)
-{
-    std::cout << API::GetTypeString(guid) << std::endl;
-    return true;
-}
 
 namespace API
 {
@@ -85,8 +78,8 @@ namespace API
         return Mem::ReadString(ptr2);
     }
 
-    void Enum()
+    void ForEachObject(ObjectCallback function)
     {
-        Functions::EnumVisibleObjects(AppendObject, 0);
+        Functions::EnumVisibleObjects(function, 0);
     }
 }
