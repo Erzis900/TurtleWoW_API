@@ -118,4 +118,9 @@ namespace API
     {
         return GetSpeed(GetPlayerGUID());
     }
+
+    void SetPlayerSpeed(float speed)
+    {
+        Mem::Write<float>(Functions::GetObjectPtr(Functions::GetPlayerGUID()) + Offsets::Unit::SPEED, speed);
+    }
 }

@@ -11,6 +11,12 @@ namespace Mem
         return *reinterpret_cast<T *>(address);
     }
 
+    template <typename T>
+    void Write(uintptr_t address, T value)
+    {
+        *reinterpret_cast<T *>(address) = value;
+    }
+
     std::string ReadString(uintptr_t address)
     {
         return std::string(reinterpret_cast<char *>(address));
