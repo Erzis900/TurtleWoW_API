@@ -98,4 +98,14 @@ namespace API
         uint64_t guid = 0;
         Functions::MoveTo(GetPlayerPtr(), 4, &guid, &position, 2);
     }
+
+    float GetRotation(uint64_t guid)
+    {
+        return Mem::Read<float>(Functions::GetObjectPtr(guid) + Offsets::Unit::FACING);
+    }
+
+    float GetPlayerRotation()
+    {
+        return GetRotation(GetPlayerGUID());
+    }
 }

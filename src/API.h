@@ -33,4 +33,6 @@ namespace API
     Vec3 GetCameraPosition();
 
     void MoveTo(Vec3 position);
+    float GetRotation(uint64_t guid);
+    float GetPlayerRotation();
 }

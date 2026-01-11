@@ -25,6 +25,7 @@ namespace Offsets
     {
         constexpr uintptr_t DESCRIPTOR = 0x8;
         constexpr uintptr_t POSITION = 0x9B8;
+        constexpr uintptr_t FACING = 0x09C4;
         constexpr uintptr_t HEALTH = 0x58;
         constexpr uintptr_t NAME = 0xB30;
     }
