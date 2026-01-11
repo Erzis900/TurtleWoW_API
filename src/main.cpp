@@ -1,12 +1,16 @@
 #include <Windows.h>
+#include "Console.h"
 
 DWORD WINAPI MainThread(HINSTANCE hinstDLL)
 {
+    Console::Init();
+
     while (!(GetAsyncKeyState(VK_END) & 1))
     {
         Sleep(50);
     }
 
+    Console::Shutdown();
     FreeLibraryAndExitThread(hinstDLL, 0);
     return 0;
 }
