@@ -22,9 +22,4 @@ namespace API::Unit
     {
         return Utils::ReactionTypeToString(GetReactionType(guid1, guid2));
     }
-
-    // 17379391011599442302 17379391015927964314
-    // 6452165
-    // 17379391011515556093
-    // 17379391011599442413
 }

@@ -5,12 +5,12 @@
 
 bool __thiscall Callback(int filter, uint64_t guid)
 {
-    if (API::GetType(guid) != Types::Unit)
+    if (API::GetType(guid) != Types::GameObject)
         return true;
 
-    std::cout << API::Unit::GetReactionTypeString(guid, API::Player::GetGUID()) << std::endl;
+    // std::cout << API::Unit::GetReactionTypeString(guid, API::Player::GetGUID()) << std::endl;
     // std::cout << API::Unit::GetTypeString(guid) << " " << API::GetName(guid) << " " << guid << std::endl;
-    // std::cout << API::Unit::GetTypeString(guid) << " " << API::GetName(guid) << std::endl;
+    std::cout << API::GameObject::GetModelName(guid) << std::endl;
     return true;
 }
 

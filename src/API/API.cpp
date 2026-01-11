@@ -71,4 +71,9 @@ namespace API
     {
         return Mem::Read<int>(GetDescriptor(guid) + Offsets::Object::ID);
     }
+
+    int GetLevel(uint64_t guid)
+    {
+        return Mem::Read<int>(GetDescriptor(guid) + Offsets::Object::LEVEL);
+    }
 }
