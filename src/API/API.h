@@ -15,12 +15,9 @@ namespace API
     int GetHealth(uint64_t guid);
     Types::Object GetType(uint64_t guid);
     std::string GetTypeString(uint64_t guid);
-
     std::string GetName(uint64_t guid);
     void ForEachObject(ObjectCallback function);
-
     float GetRotation(uint64_t guid);
-
     float GetSpeed(uint64_t guid);
     float GetSpeedModifier(uint64_t guid);
 }

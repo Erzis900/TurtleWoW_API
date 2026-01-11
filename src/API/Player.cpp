@@ -15,7 +15,7 @@ namespace API::Player
 
     uintptr_t GetPtr()
     {
-        return Functions::GetObjectPtr(Functions::GetPlayerGUID());
+        return Functions::GetObjectPtr(GetGUID());
     }
 
     Vec3 GetPosition()
@@ -49,27 +49,27 @@ namespace API::Player
         Functions::MoveTo(GetPtr(), 4, &guid, &position, 2);
     }
 
-    float GetPlayerRotation()
+    float GetRotation()
     {
         return API::GetRotation(GetGUID());
     }
 
-    float GetPlayerSpeed()
+    float GetSpeed()
     {
         return API::GetSpeed(GetGUID());
     }
 
-    void SetPlayerSpeed(float speed)
+    void SetSpeed(float speed)
     {
         Mem::Write<float>(GetPtr() + Offsets::Unit::SPEED, speed);
     }
 
-    float GetSpeedModifier(uint64_t guid)
+    float GetSpeedModifier()
     {
         return Mem::Read<float>(GetPtr() + Offsets::Unit::SPEED_MOD);
     }
 
-    void SetPlayerSpeedModifier(float speedModifier)
+    void SetSpeedModifier(float speedModifier)
     {
         Mem::Write<float>(GetPtr() + Offsets::Unit::SPEED_MOD, speedModifier);
     }

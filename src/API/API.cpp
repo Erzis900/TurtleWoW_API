@@ -57,4 +57,9 @@ namespace API
     {
         return Mem::Read<float>(Functions::GetObjectPtr(guid) + Offsets::Unit::SPEED);
     }
+
+    float GetSpeedModifier(uint64_t guid)
+    {
+        return Mem::Read<float>(Functions::GetObjectPtr(guid) + Offsets::Unit::SPEED_MOD);
+    }
 }
