@@ -51,12 +51,12 @@ namespace API
         return GetHealth(GetPlayerGUID());
     }
 
-    ObjectType GetType(uint64_t guid)
+    Types::Object GetType(uint64_t guid)
     {
-        return Mem::Read<ObjectType>(GetObjectPtr(guid) + Offsets::Object::TYPE);
+        return Mem::Read<Types::Object>(GetObjectPtr(guid) + Offsets::Object::TYPE);
     }
 
-    ObjectType GetPlayerType()
+    Types::Object GetPlayerType()
     {
         return GetType(GetPlayerGUID());
     }

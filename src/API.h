@@ -19,8 +19,8 @@ namespace API
     int GetHealth(uint64_t guid);
     int GetPlayerHealth();
 
-    ObjectType GetType(uint64_t guid);
-    ObjectType GetPlayerType();
+    Types::Object GetType(uint64_t guid);
+    Types::Object GetPlayerType();
 
     std::string GetTypeString(uint64_t guid);
     std::string GetPlayerTypeString();

@@ -1,11 +1,17 @@
 #include <Windows.h>
 #include "Console.h"
 #include "API.h"
+#include "Types.h"
 #include <iostream>
 
-bool __thiscall PrintType(int filter, uint64_t guid)
+bool __thiscall Callback(int filter, uint64_t guid)
 {
-    std::cout << API::GetTypeString(guid) << std::endl;
+    // std::cout << API::GetTypeString(guid) << std::endl;
+    if (API::GetType(guid) == Types::Object::Unit)
+    {
+        std::cout << API::GetName(guid) << std::endl;
+    }
+
     return true;
 }
 
@@ -15,7 +21,7 @@ DWORD WINAPI MainThread(HINSTANCE hinstDLL)
 
     while (!(GetAsyncKeyState(VK_END) & 1))
     {
-        API::ForEachObject(PrintType);
+        API::ForEachObject(Callback);
         Sleep(50);
     }
 

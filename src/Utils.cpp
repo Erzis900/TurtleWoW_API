@@ -6,7 +6,7 @@ const std::array<std::string, 8> ObjectTypeStrings = {
 
 namespace Utils
 {
-    std::string ObjectTypeToString(ObjectType type)
+    std::string ObjectTypeToString(Types::Object type)
     {
         return ObjectTypeStrings[type];
     }

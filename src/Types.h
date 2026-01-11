@@ -5,14 +5,17 @@ struct Vec3
     float x, y, z;
 };
 
-enum ObjectType
+namespace Types
 {
-    None,
-    Item,
-    Container,
-    Unit,
-    Player,
-    GameObject,
-    DynamicObject,
-    Corpse
-};
+    enum Object
+    {
+        None,
+        Item,
+        Container,
+        Unit,
+        Player,
+        GameObject,
+        DynamicObject,
+        Corpse
+    };
+}
