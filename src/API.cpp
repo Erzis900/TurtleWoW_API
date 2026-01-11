@@ -6,14 +6,91 @@
 
 namespace API
 {
-    bool IsLoggedIn()
+    namespace Player
     {
-        return Functions::GetPlayerGUID() > 0;
+        bool IsLoggedIn()
+        {
+            return Functions::GetPlayerGUID() > 0;
+        }
+
+        uint64_t GetGUID()
+        {
+            return Functions::GetPlayerGUID();
+        }
+
+        uintptr_t GetPtr()
+        {
+            return Functions::GetObjectPtr(Functions::GetPlayerGUID());
+        }
+
+        Vec3 GetPosition()
+        {
+            return API::GetPosition(GetGUID());
+        }
+
+        void SetPosition(Vec3 position)
+        {
+            Mem::Write<Vec3>(GetPtr() + Offsets::Unit::POSITION, position);
+        }
+
+        int GetHealth()
+        {
+            return API::GetHealth(GetGUID());
+        }
+
+        Types::Object GetType()
+        {
+            return API::GetType(GetGUID());
+        }
+
+        std::string GetTypeString()
+        {
+            return API::GetTypeString(GetGUID());
+        }
+
+        void MoveTo(Vec3 position)
+        {
+            uint64_t guid = 0;
+            Functions::MoveTo(GetPtr(), 4, &guid, &position, 2);
+        }
+
+        float GetPlayerRotation()
+        {
+            return API::GetRotation(GetGUID());
+        }
+
+        float GetPlayerSpeed()
+        {
+            return API::GetSpeed(GetGUID());
+        }
+
+        void SetPlayerSpeed(float speed)
+        {
+            Mem::Write<float>(GetPtr() + Offsets::Unit::SPEED, speed);
+        }
+
+        float GetSpeedModifier(uint64_t guid)
+        {
+            return Mem::Read<float>(GetPtr() + Offsets::Unit::SPEED_MOD);
+        }
+
+        void SetPlayerSpeedModifier(float speedModifier)
+        {
+            Mem::Write<float>(GetPtr() + Offsets::Unit::SPEED_MOD, speedModifier);
+        }
     }
 
-    uint64_t GetPlayerGUID()
+    namespace Camera
     {
-        return Functions::GetPlayerGUID();
+        uintptr_t GetPtr()
+        {
+            return Functions::GetCamera();
+        }
+
+        Vec3 GetPosition()
+        {
+            return Mem::Read<Vec3>(GetPtr() + Offsets::Camera::POSITION);
+        }
     }
 
     uintptr_t GetObjectPtr(uint64_t guid)
@@ -21,24 +98,9 @@ namespace API
         return Functions::GetObjectPtr(guid);
     }
 
-    uintptr_t GetPlayerPtr()
-    {
-        return Functions::GetObjectPtr(Functions::GetPlayerGUID());
-    }
-
     Vec3 GetPosition(uint64_t guid)
     {
         return Mem::Read<Vec3>(GetObjectPtr(guid) + Offsets::Unit::POSITION);
-    }
-
-    Vec3 GetPlayerPosition()
-    {
-        return GetPosition(GetPlayerGUID());
-    }
-
-    void SetPlayerPosition(Vec3 position)
-    {
-        Mem::Write<Vec3>(GetPlayerPtr() + Offsets::Unit::POSITION, position);
     }
 
     uintptr_t GetDescriptor(uint64_t guid)
@@ -51,29 +113,14 @@ namespace API
         return Mem::Read<int>(GetDescriptor(guid) + Offsets::Unit::HEALTH);
     }
 
-    int GetPlayerHealth()
-    {
-        return GetHealth(GetPlayerGUID());
-    }
-
     Types::Object GetType(uint64_t guid)
     {
         return Mem::Read<Types::Object>(GetObjectPtr(guid) + Offsets::Object::TYPE);
     }
 
-    Types::Object GetPlayerType()
-    {
-        return GetType(GetPlayerGUID());
-    }
-
     std::string GetTypeString(uint64_t guid)
     {
         return Utils::ObjectTypeToString(GetType(guid));
-    }
-
-    std::string GetPlayerTypeString()
-    {
-        return GetTypeString(GetPlayerGUID());
     }
 
     std::string GetName(uint64_t guid)
@@ -88,54 +135,13 @@ namespace API
         Functions::EnumVisibleObjects(function, 0);
     }
 
-    uintptr_t GetCameraPtr()
-    {
-        return Functions::GetCamera();
-    }
-
-    Vec3 GetCameraPosition()
-    {
-        return Mem::Read<Vec3>(GetCameraPtr() + Offsets::Camera::POSITION);
-    }
-
-    void MoveTo(Vec3 position)
-    {
-        uint64_t guid = 0;
-        Functions::MoveTo(GetPlayerPtr(), 4, &guid, &position, 2);
-    }
-
     float GetRotation(uint64_t guid)
     {
         return Mem::Read<float>(Functions::GetObjectPtr(guid) + Offsets::Unit::FACING);
     }
 
-    float GetPlayerRotation()
-    {
-        return GetRotation(GetPlayerGUID());
-    }
-
     float GetSpeed(uint64_t guid)
     {
         return Mem::Read<float>(Functions::GetObjectPtr(guid) + Offsets::Unit::SPEED);
-    }
-
-    float GetPlayerSpeed()
-    {
-        return GetSpeed(GetPlayerGUID());
-    }
-
-    void SetPlayerSpeed(float speed)
-    {
-        Mem::Write<float>(GetPlayerPtr() + Offsets::Unit::SPEED, speed);
-    }
-
-    float GetSpeedModifier(uint64_t guid)
-    {
-        return Mem::Read<float>(GetPlayerPtr() + Offsets::Unit::SPEED_MOD);
-    }
-
-    void SetPlayerSpeedModifier(float speedModifier)
-    {
-        Mem::Write<float>(GetPlayerPtr() + Offsets::Unit::SPEED_MOD, speedModifier);
     }
 }

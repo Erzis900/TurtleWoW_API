@@ -26,7 +26,7 @@ DWORD WINAPI MainThread(HINSTANCE hinstDLL)
     {
         API::ForEachObject(Callback);
         // API::SetPlayerSpeed(15.f);
-        std::cout << API::GetPlayerPosition().ToString() << std::endl;
+        std::cout << API::Player::GetPosition().ToString() << std::endl;
         Sleep(50);
     }
 
