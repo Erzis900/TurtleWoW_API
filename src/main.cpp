@@ -5,7 +5,7 @@
 
 bool __thiscall Callback(int filter, uint64_t guid)
 {
-    std::cout << API::GetName(guid) << std::endl;
+    std::cout << API::GetID(guid) << " " << API::GetName(guid) << std::endl;
     return true;
 }
 
