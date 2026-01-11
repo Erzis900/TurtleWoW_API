@@ -17,7 +17,7 @@ namespace Mem
         *reinterpret_cast<T *>(address) = value;
     }
 
-    std::string ReadString(uintptr_t address)
+    inline std::string ReadString(uintptr_t address)
     {
         return std::string(reinterpret_cast<char *>(address));
     }
