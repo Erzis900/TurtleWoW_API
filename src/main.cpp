@@ -5,7 +5,10 @@
 
 bool __thiscall Callback(int filter, uint64_t guid)
 {
-    std::cout << API::GetID(guid) << " " << API::GetName(guid) << std::endl;
+    if (API::GetType(guid) != Types::Player)
+        return true;
+
+    std::cout << API::GetMaxHealth(guid) << " " << API::GetName(guid) << std::endl;
     return true;
 }
 

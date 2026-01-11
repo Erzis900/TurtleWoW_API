@@ -26,6 +26,11 @@ namespace API
         return Mem::Read<int>(GetDescriptor(guid) + Offsets::Object::HEALTH);
     }
 
+    int GetMaxHealth(uint64_t guid)
+    {
+        return Mem::Read<int>(GetDescriptor(guid) + Offsets::Object::MAX_HEALTH);
+    }
+
     Types::Object GetType(uint64_t guid)
     {
         return Mem::Read<Types::Object>(GetObjectPtr(guid) + Offsets::Object::TYPE);

@@ -26,6 +26,7 @@ namespace Offsets
         constexpr uintptr_t SPEED = 0xA2C;
         constexpr uintptr_t SPEED_MOD = 0x0A34;
         constexpr uintptr_t ID = 0xC;
+        constexpr uintptr_t MAX_HEALTH = 0x70;
     }
 
     namespace Camera
