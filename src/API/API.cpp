@@ -13,17 +13,17 @@ namespace API
 
     Vec3 GetPosition(uint64_t guid)
     {
-        return Mem::Read<Vec3>(GetObjectPtr(guid) + Offsets::Unit::POSITION);
+        return Mem::Read<Vec3>(GetObjectPtr(guid) + Offsets::Object::POSITION);
     }
 
     uintptr_t GetDescriptor(uint64_t guid)
     {
-        return Mem::Read<uintptr_t>(GetObjectPtr(guid) + Offsets::Unit::DESCRIPTOR);
+        return Mem::Read<uintptr_t>(GetObjectPtr(guid) + Offsets::Object::DESCRIPTOR);
     }
 
     int GetHealth(uint64_t guid)
     {
-        return Mem::Read<int>(GetDescriptor(guid) + Offsets::Unit::HEALTH);
+        return Mem::Read<int>(GetDescriptor(guid) + Offsets::Object::HEALTH);
     }
 
     Types::Object GetType(uint64_t guid)
@@ -38,9 +38,8 @@ namespace API
 
     std::string GetName(uint64_t guid)
     {
-        uintptr_t ptr1 = Mem::Read<uintptr_t>(GetObjectPtr(guid) + Offsets::Unit::NAME);
-        uintptr_t ptr2 = Mem::Read<uintptr_t>(ptr1);
-        return Mem::ReadString(ptr2);
+        const char *name = CallVFunc<28, const char *>(GetObjectPtr(guid));
+        return std::string(name);
     }
 
     void ForEachObject(ObjectCallback function)
@@ -50,16 +49,16 @@ namespace API
 
     float GetRotation(uint64_t guid)
     {
-        return Mem::Read<float>(Functions::GetObjectPtr(guid) + Offsets::Unit::FACING);
+        return Mem::Read<float>(Functions::GetObjectPtr(guid) + Offsets::Object::ROTATION);
     }
 
     float GetSpeed(uint64_t guid)
     {
-        return Mem::Read<float>(Functions::GetObjectPtr(guid) + Offsets::Unit::SPEED);
+        return Mem::Read<float>(Functions::GetObjectPtr(guid) + Offsets::Object::SPEED);
     }
 
     float GetSpeedModifier(uint64_t guid)
     {
-        return Mem::Read<float>(Functions::GetObjectPtr(guid) + Offsets::Unit::SPEED_MOD);
+        return Mem::Read<float>(Functions::GetObjectPtr(guid) + Offsets::Object::SPEED_MOD);
     }
 }

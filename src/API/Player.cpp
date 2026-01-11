@@ -25,7 +25,7 @@ namespace API::Player
 
     void SetPosition(Vec3 position)
     {
-        Mem::Write<Vec3>(GetPtr() + Offsets::Unit::POSITION, position);
+        Mem::Write<Vec3>(GetPtr() + Offsets::Object::POSITION, position);
     }
 
     int GetHealth()
@@ -61,16 +61,16 @@ namespace API::Player
 
     void SetSpeed(float speed)
     {
-        Mem::Write<float>(GetPtr() + Offsets::Unit::SPEED, speed);
+        Mem::Write<float>(GetPtr() + Offsets::Object::SPEED, speed);
     }
 
     float GetSpeedModifier()
     {
-        return Mem::Read<float>(GetPtr() + Offsets::Unit::SPEED_MOD);
+        return Mem::Read<float>(GetPtr() + Offsets::Object::SPEED_MOD);
     }
 
     void SetSpeedModifier(float speedModifier)
     {
-        Mem::Write<float>(GetPtr() + Offsets::Unit::SPEED_MOD, speedModifier);
+        Mem::Write<float>(GetPtr() + Offsets::Object::SPEED_MOD, speedModifier);
     }
 }

@@ -20,4 +20,14 @@ namespace API
     float GetRotation(uint64_t guid);
     float GetSpeed(uint64_t guid);
     float GetSpeedModifier(uint64_t guid);
+
+    // C++ magic, don't ask me about it
+    template <std::size_t index, typename Ret, typename... Args>
+    Ret CallVFunc(uintptr_t objectPtr, Args... args)
+    {
+        using Fn = Ret(__thiscall *)(void *, Args...);
+
+        auto function = (*reinterpret_cast<Fn **>(objectPtr))[index];
+        return function(reinterpret_cast<void *>(objectPtr), args...);
+    }
 }
