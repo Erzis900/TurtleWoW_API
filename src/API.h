@@ -1,6 +1,7 @@
 #pragma once
 #include <cstdint>
 #include "Types.h"
+#include <string>
 
 namespace API
 {
@@ -8,12 +9,18 @@ namespace API
     uint64_t GetPlayerGUID();
     uintptr_t GetObjectPtr(uint64_t guid);
     uintptr_t GetPlayerPtr();
+
     Vec3 GetPosition(uint64_t guid);
     Vec3 GetPlayerPosition();
+
     uintptr_t GetDescriptor(uint64_t guid);
+
     int GetHealth(uint64_t guid);
     int GetPlayerHealth();
 
-    int GetType(uint64_t guid);
-    int GetPlayerType();
+    ObjectType GetType(uint64_t guid);
+    ObjectType GetPlayerType();
+
+    std::string GetTypeString(uint64_t guid);
+    std::string GetPlayerTypeString();
 }

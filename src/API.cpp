@@ -2,6 +2,7 @@
 #include "Functions.h"
 #include "Mem.h"
 #include "Offsets.h"
+#include "Utils.h"
 
 namespace API
 {
@@ -50,13 +51,23 @@ namespace API
         return GetHealth(GetPlayerGUID());
     }
 
-    int GetType(uint64_t guid)
+    ObjectType GetType(uint64_t guid)
     {
         return Mem::Read<ObjectType>(GetObjectPtr(guid) + Offsets::Object::TYPE);
     }
 
-    int GetPlayerType()
+    ObjectType GetPlayerType()
     {
         return GetType(GetPlayerGUID());
+    }
+
+    std::string GetTypeString(uint64_t guid)
+    {
+        return Utils::ObjectTypeToString(GetType(guid));
+    }
+
+    std::string GetPlayerTypeString()
+    {
+        return GetTypeString(GetPlayerGUID());
     }
 }
