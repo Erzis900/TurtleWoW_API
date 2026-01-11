@@ -12,7 +12,7 @@ bool __thiscall Callback(int filter, uint64_t guid)
     // }
 
     // std::cout << API::GetCameraPosition().ToString() << std::endl;
-    std::cout << API::GetSpeedModifier(API::GetPlayerGUID()) << std::endl;
+    // std::cout << API::GetSpeedModifier(API::GetPlayerGUID()) << std::endl;
 
     return true;
 }
@@ -21,11 +21,12 @@ DWORD WINAPI MainThread(HINSTANCE hinstDLL)
 {
     Console::Init();
 
-    API::SetPlayerSpeedModifier(7.f);
+    // API::SetPlayerSpeedModifier(7.f);
     while (!(GetAsyncKeyState(VK_END) & 1))
     {
         API::ForEachObject(Callback);
         // API::SetPlayerSpeed(15.f);
+        std::cout << API::GetPlayerPosition().ToString() << std::endl;
         Sleep(50);
     }
 

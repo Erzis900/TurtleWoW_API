@@ -14,6 +14,7 @@ namespace API
 
     Vec3 GetPosition(uint64_t guid);
     Vec3 GetPlayerPosition();
+    void SetPlayerPosition(Vec3 position);
 
     uintptr_t GetDescriptor(uint64_t guid);
 

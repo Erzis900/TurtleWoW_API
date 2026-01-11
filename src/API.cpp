@@ -36,6 +36,11 @@ namespace API
         return GetPosition(GetPlayerGUID());
     }
 
+    void SetPlayerPosition(Vec3 position)
+    {
+        Mem::Write<Vec3>(GetPlayerPtr() + Offsets::Unit::POSITION, position);
+    }
+
     uintptr_t GetDescriptor(uint64_t guid)
     {
         return Mem::Read<uintptr_t>(GetObjectPtr(guid) + Offsets::Unit::DESCRIPTOR);
