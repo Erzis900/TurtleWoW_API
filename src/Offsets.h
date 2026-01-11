@@ -28,4 +28,9 @@ namespace Offsets
         constexpr uintptr_t HEALTH = 0x58;
         constexpr uintptr_t NAME = 0xB30;
     }
+
+    namespace Camera
+    {
+        constexpr uintptr_t POSITION = 0x8;
+    }
 }

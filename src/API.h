@@ -29,6 +29,8 @@ namespace API
     std::string GetName(uint64_t guid);
     void ForEachObject(ObjectCallback function);
 
-    uintptr_t GetCamera();
+    uintptr_t GetCameraPtr();
+    Vec3 GetCameraPosition();
+
     void MoveTo(Vec3 position);
 }

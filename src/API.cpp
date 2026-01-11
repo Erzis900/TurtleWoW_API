@@ -83,9 +83,14 @@ namespace API
         Functions::EnumVisibleObjects(function, 0);
     }
 
-    uintptr_t GetCamera()
+    uintptr_t GetCameraPtr()
     {
         return Functions::GetCamera();
+    }
+
+    Vec3 GetCameraPosition()
+    {
+        return Mem::Read<Vec3>(GetCameraPtr() + Offsets::Camera::POSITION);
     }
 
     void MoveTo(Vec3 position)

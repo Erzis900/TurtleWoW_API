@@ -11,7 +11,7 @@ bool __thiscall Callback(int filter, uint64_t guid)
     //     std::cout << API::GetName(guid) << std::endl;
     // }
 
-    std::cout << API::GetPlayerPosition().ToString() << std::endl;
+    std::cout << API::GetCameraPosition().ToString() << std::endl;
 
     return true;
 }
