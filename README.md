@@ -105,7 +105,7 @@ bool __thiscall Callback(int filter, uint64_t guid)
 }
 ```
 
-# Calling VTAble Functions
+# Calling VTable Functions
 
 The API exposes a generic virtual function caller:
 ```cpp
