@@ -4,8 +4,8 @@ project(TurtleWoW_API LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_library(${PROJECT_NAME} SHARED 
-    src/main.cpp
+add_library(${PROJECT_NAME} STATIC)
+target_sources(${PROJECT_NAME} PRIVATE
     src/Console.cpp
     src/Utils.cpp
     src/API/API.cpp
@@ -15,8 +15,11 @@ add_library(${PROJECT_NAME} SHARED
     src/API/GameObject.cpp
 )
 
-target_include_directories(${PROJECT_NAME} PRIVATE src)
+target_include_directories(${PROJECT_NAME} 
+    PRIVATE 
+        src
+    PUBLIC 
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        $<INSTALL_INTERFACE:include>)
 
-target_link_options(${PROJECT_NAME} PRIVATE 
-    -static
-)
+set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER include/API.h)
