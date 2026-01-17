@@ -11,6 +11,7 @@ using fpMoveTo = bool(__thiscall *)(uintptr_t playerPtr, int clickType, uint64_t
 using fpGetUnitType = int(__thiscall *)(uintptr_t unitPtr);
 using fpGetUnitReaction = int(__thiscall *)(uintptr_t unitPtr1, uintptr_t unitPtr2);
 using fpGetGameObjectModelName = const char *(__fastcall *)(uintptr_t gameObjectPtr);
+using fpGetScreenCoordinates = bool(__thiscall *)(uintptr_t frame, Vec3 *worldPos, Vec2 *screenOut);
 
 namespace Functions
 {
@@ -22,4 +23,5 @@ namespace Functions
     inline fpGetUnitType GetUnitType = reinterpret_cast<fpGetUnitType>(Offsets::Functions::GET_UNIT_TYPE);
     inline fpGetUnitReaction GetUnitReaction = reinterpret_cast<fpGetUnitReaction>(Offsets::Functions::GET_UNIT_REACTION);
     inline fpGetGameObjectModelName GetGameObjectModelName = reinterpret_cast<fpGetGameObjectModelName>(Offsets::Functions::GET_GAMEOBJECT_MODEL_NAME);
+    inline fpGetScreenCoordinates GetScreenCoordinates = reinterpret_cast<fpGetScreenCoordinates>(Offsets::Functions::GET_SCREEN_COORDINATES);
 }

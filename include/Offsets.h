@@ -12,6 +12,7 @@ namespace Offsets
         constexpr uintptr_t GET_UNIT_TYPE = 0x00605570;
         constexpr uintptr_t GET_UNIT_REACTION = 0x006061E0;
         constexpr uintptr_t GET_GAMEOBJECT_MODEL_NAME = 0x005F8090;
+        constexpr uintptr_t GET_SCREEN_COORDINATES = 0x00483EE0;
     }
 
     namespace Object
@@ -31,5 +32,6 @@ namespace Offsets
     namespace Camera
     {
         constexpr uintptr_t POSITION = 0x8;
+        constexpr uintptr_t WORLD_FRAME_PTR = 0x00B4B2BC;
     }
 }

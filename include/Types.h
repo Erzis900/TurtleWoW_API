@@ -1,6 +1,17 @@
 #pragma once
 #include <string>
 
+struct Vec2
+{
+    float x, y;
+
+    std::string ToString()
+    {
+        return "(" + std::to_string(x) + ", " +
+               std::to_string(y) + ")";
+    }
+};
+
 struct Vec3
 {
     float x, y, z;
