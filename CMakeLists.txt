@@ -6,7 +6,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_library(${PROJECT_NAME} STATIC)
 target_sources(${PROJECT_NAME} PRIVATE
-    src/Console.cpp
     src/Utils.cpp
     src/API/API.cpp
     src/API/Player.cpp
